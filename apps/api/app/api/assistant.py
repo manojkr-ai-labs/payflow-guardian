@@ -4,7 +4,8 @@ from sqlalchemy.orm import Session
 
 from app.api.deps import get_current_membership, get_paypal
 from app.core.db import get_db, get_settings
-from app.modules.assistant.service import Model, default_model, handle_message
+from app.modules.assistant.model import model_for_settings
+from app.modules.assistant.service import Model, handle_message
 from app.modules.auth.models import Membership
 from app.modules.paypal.types import PayPalAdapter
 
@@ -19,7 +20,7 @@ class MessageBody(BaseModel):
 
 
 def get_model() -> Model:
-    return default_model
+    return model_for_settings(get_settings())
 
 
 @router.post("/messages")

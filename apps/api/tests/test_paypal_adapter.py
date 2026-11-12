@@ -624,13 +624,18 @@ def test_live_client_matches_the_adapter_interface() -> None:
 def test_only_the_paypal_module_imports_an_http_client() -> None:
     http_import = re.compile(r"(?m)^(?:from|import)\s+(?:httpx|requests|urllib|http\.client|aiohttp)\b")
     host = re.compile(r"api(?:-m)?(?:\.sandbox)?\.paypal\.com")
+    # The assistant model client is the other allowed HTTP caller. It must not name PayPal.
+    allowed_http = {ROOT / "apps" / "api" / "app" / "modules" / "assistant" / "model.py"}
     offenders: list[str] = []
     api_root = ROOT / "apps" / "api" / "app"
     for path in api_root.rglob("*.py"):
         if "paypal" in path.parts:
             continue
         text_value = path.read_text(encoding="utf-8")
-        if http_import.search(text_value) or host.search(text_value):
+        if host.search(text_value):
+            offenders.append(str(path.relative_to(ROOT)))
+            continue
+        if http_import.search(text_value) and path not in allowed_http:
             offenders.append(str(path.relative_to(ROOT)))
     web_root = ROOT / "apps" / "web"
     for path in web_root.rglob("*"):

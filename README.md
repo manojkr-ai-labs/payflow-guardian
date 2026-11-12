@@ -48,7 +48,9 @@ Copy `.env.example` only as a name list. For a real Sandbox story, set these bes
 - `PAYPAL_CLIENT_SECRET`
 - `PAYPAL_API_BASE` as `https://api-m.sandbox.paypal.com`
 
-`PAYPAL_WEBHOOK_ID`, `AI_BASE_URL`, `AI_API_KEY`, and `AI_MODEL` may stay empty. Empty AI settings keep the built-in assistant answer and do not call a model network.
+`PAYPAL_WEBHOOK_ID` may stay empty. Signature verification does not accept a webhook until that id is set.
+
+`AI_BASE_URL`, `AI_API_KEY`, and `AI_MODEL` may stay empty. When all three are set, the assistant calls that chat API and may use only the allowlisted tools. When any of them is empty, the assistant does not call a model network. It still looks up the payment named in the message, investigates it through PayPal, and explains the stored fact sheet.
 
 If those PayPal variables are missing, Compose uses the placeholders in `docker-compose.yml`. The app boots. A Sandbox approve, capture, or refund does not complete until the placeholders are replaced with Sandbox credentials. An empty `PAYPAL_CLIENT_SECRET=` in a `.env` file overrides the placeholder, so omit a line instead of leaving it blank.
 

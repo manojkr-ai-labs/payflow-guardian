@@ -2,31 +2,16 @@ from __future__ import annotations
 
 import json
 import uuid
-from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Callable
 
 from sqlalchemy.orm import Session
 
+from app.modules.assistant.model import Model, ModelTurn, default_model
 from app.modules.assistant.models import AssistantMessage
 from app.modules.assistant.tools import TOOLS, ToolContext
 from app.modules.payments.models import Payment
 
 MAX_TOOL_CALLS = 3
-
-
-@dataclass
-class ModelTurn:
-    answer: str | None = None
-    tool_name: str | None = None
-    arguments: dict[str, object] | None = None
-
-
-Model = Callable[[list[dict[str, object]]], ModelTurn]
-
-
-def default_model(_history: list[dict[str, object]]) -> ModelTurn:
-    return ModelTurn(answer="I can help with a test payment, a PayPal check, or the next step.")
 
 
 def _next_step(payment: Payment | None) -> str | None:
