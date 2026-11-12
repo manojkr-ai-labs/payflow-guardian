@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PayFlow Guardian - Assistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#c1c6d6",
+            "on-secondary-container": "#3e5681",
+            "tertiary-fixed-dim": "#ffb692",
+            "surface-container-high": "#e4e7ff",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#00458f",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#414753",
+            "tertiary-fixed": "#ffdbcb",
+            "on-tertiary-fixed": "#341100",
+            "surface": "#faf8ff",
+            "outline": "#717785",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#fff8f5",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#d7e3ff",
+            "secondary": "#475f8a",
+            "tertiary-container": "#bf5100",
+            "inverse-surface": "#132a71",
+            "primary-fixed": "#d7e3ff",
+            "surface-container-highest": "#dce1ff",
+            "primary-container": "#0070e0",
+            "surface-dim": "#d1d8ff",
+            "surface-tint": "#005cba",
+            "on-primary-fixed": "#001b3f",
+            "on-tertiary-fixed-variant": "#793000",
+            "primary-fixed-dim": "#abc7ff",
+            "surface-container": "#ebedff",
+            "on-secondary-fixed": "#001b3f",
+            "inverse-primary": "#abc7ff",
+            "secondary-fixed-dim": "#afc7f8",
+            "on-background": "#001551",
+            "on-primary": "#ffffff",
+            "surface-container-low": "#f3f2ff",
+            "on-primary-container": "#f9f9ff",
+            "secondary-container": "#b4ccfe",
+            "background": "#faf8ff",
+            "on-secondary-fixed-variant": "#2e4770",
+            "surface-variant": "#dce1ff",
+            "tertiary": "#983f00",
+            "on-surface": "#001551",
+            "on-error-container": "#93000a",
+            "primary": "#0058b2",
+            "inverse-on-surface": "#efefff",
+            "surface-bright": "#faf8ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "margin-desktop": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter-desktop": "1.5rem",
+            "margin": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "title-page": ["Inter"],
+            "display-currency": ["Inter"],
+            "title-section": ["Inter"],
+            "currency-md": ["Inter"],
+            "caption": ["Inter"],
+            "title-page-mobile": ["Inter"],
+            "body-secondary": ["Inter"],
+            "body-default": ["Inter"],
+            "chip-label": ["Inter"],
+            "body-medium": ["Inter"],
+            "metadata-caps": ["Inter"]
+          },
+          "fontSize": {
+            "title-page": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-currency": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "title-section": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "currency-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "caption": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-page-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-secondary": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-default": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "chip-label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "metadata-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #F5F7FA;
+      color: #001C64;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-card-shadow {
+      box-shadow: 0 1px 2px rgba(0, 28, 100, 0.06);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+<!-- Top Navigation Bar -->
+<header class="w-full h-16 bg-[#FFFFFF] border-b border-[#E6E8EB] px-6 lg:px-8 flex items-center justify-between sticky top-0 z-30">
+<div class="flex items-center gap-8">
+<!-- Wordmark & Environment Chip -->
+<div class="flex items-center gap-2.5">
+<span class="font-semibold text-lg text-[#001C64] tracking-tight">PayFlow Guardian</span>
+<span class="px-1.5 py-0.5 font-mono text-[11px] font-medium tracking-wide uppercase text-[#687173] bg-[#F5F7FA] border border-[#E6E8EB] rounded">SANDBOX</span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-6 h-16">
+<a class="text-sm font-normal text-[#687173] hover:text-[#001C64] transition-colors h-full flex items-center" href="#">Dashboard</a>
+<a class="text-sm font-normal text-[#687173] hover:text-[#001C64] transition-colors h-full flex items-center" href="#">Payments</a>
+<a class="text-sm font-medium text-[#0070E0] h-full flex items-center border-b-2 border-[#0070E0] pt-0.5" href="#">Assistant</a>
+<a class="text-sm font-normal text-[#687173] hover:text-[#001C64] transition-colors h-full flex items-center" href="#">Refunds</a>
+</nav>
+</div>
+<!-- Merchant User / Session Profile -->
+<div class="flex items-center gap-4">
+<div class="flex flex-col text-right">
+<span class="text-sm font-medium text-[#001C64]">Maya Chen</span>
+<span class="text-xs text-[#687173]">Owner · Harbor &amp; Co.</span>
+</div>
+<div class="h-4 w-[1px] bg-[#E6E8EB]"></div>
+<button class="text-xs font-normal text-[#687173] hover:text-[#001C64] transition-colors">Sign out</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto p-8">
+<div class="flex flex-col lg:flex-row gap-6 items-start justify-center">
+<!-- Left Operational Thread Container (~720px width) -->
+<section class="w-full lg:w-[720px] bg-[#FFFFFF] border border-[#E6E8EB] rounded-lg custom-card-shadow flex flex-col h-[650px]">
+<!-- Thread Header -->
+<div class="px-6 py-5 border-b border-[#E6E8EB]">
+<h1 class="text-xl font-semibold text-[#001C64] leading-6">Assistant</h1>
+<p class="text-sm text-[#687173] mt-1 leading-5">Answers use PayPal’s response. If PayPal did not confirm it, the assistant says so.</p>
+</div>
+<!-- Thread Message Area -->
+<div class="p-6 flex-1 flex flex-col gap-6 overflow-y-auto">
+<!-- Merchant Outbound Inquiry -->
+<div class="flex flex-col items-end">
+<span class="text-xs text-[#687173] mb-1.5 pr-1">9:14 AM</span>
+<div class="bg-[#E8F1FC] text-[#001C64] text-sm leading-relaxed rounded-lg max-w-[500px] px-4 py-3 border border-[#D5E5F9]">
+              Customer says they paid order HF-1044. I don’t see the money.
+            </div>
+</div>
+<!-- Assistant Inbound Direct Audit Observation -->
+<div class="flex flex-col items-start max-w-[620px]">
+<div class="border-l-[3px] border-[#0070E0] pl-4 py-1">
+<p class="text-sm text-[#001C64] leading-relaxed">
+                PayPal still reports 8F21K4A as pending. No capture id has been issued, so this payment is not completed. Next step: wait for capture, or ask the customer to finish approval in PayPal. I can’t confirm it was paid.
+              </p>
+<div class="text-xs text-[#687173] mt-2 flex items-center gap-1.5">
+<span>9:14 AM</span>
+<span>·</span>
+<span>Verified with PayPal Sandbox</span>
+</div>
+</div>
+<!-- Action Row Directly Underneath Assistant Observation -->
+<div class="mt-4 pl-4 flex flex-wrap gap-2.5">
+<button class="text-sm font-medium text-[#0070E0] hover:text-[#003087] bg-white border border-[#E6E8EB] hover:border-[#0070E0] px-3 py-1.5 rounded transition-colors flex items-center gap-1.5" type="button">
+                Open payment
+              </button>
+<button class="text-sm font-medium text-[#0070E0] hover:text-[#003087] bg-white border border-[#E6E8EB] hover:border-[#0070E0] px-3 py-1.5 rounded transition-colors flex items-center gap-1.5" type="button">
+                Prepare a note to the customer
+              </button>
+</div>
+</div>
+</div>
+<!-- Composer Terminal -->
+<form class="border-t border-[#E6E8EB] px-5 py-4 flex items-center gap-3 bg-[#FFFFFF] rounded-b-lg" onsubmit="event.preventDefault();">
+<input class="flex-1 bg-[#FFFFFF] border border-[#E6E8EB] text-sm text-[#001C64] placeholder-[#687173] rounded px-3.5 py-2 h-10 focus:outline-none focus:border-[#0070E0] focus:ring-1 focus:ring-[#0070E0] transition-shadow" placeholder="Ask about a payment" type="text"/>
+<button class="h-10 px-5 bg-[#0070E0] text-white font-medium text-sm rounded hover:bg-[#003087] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0070E0] focus:ring-offset-1" type="submit">
+            Send
+          </button>
+</form>
+</section>
+<!-- Right Operational Rail ("In context") (~360px width) -->
+<aside class="w-full lg:w-[360px] bg-[#FFFFFF] border border-[#E6E8EB] rounded-lg custom-card-shadow p-6">
+<!-- Rail Section Header -->
+<h2 class="text-xs uppercase tracking-wider font-semibold text-[#687173] mb-4">In context</h2>
+<!-- Active Payment Summary Block -->
+<div>
+<!-- Customer and Settlement Status -->
+<div class="flex items-center justify-between">
+<span class="font-semibold text-base text-[#001C64]">Jonah Hale</span>
+<span class="h-[22px] px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider bg-[#FFF6E0] text-[#8A5A00] inline-flex items-center">
+              Pending
+            </span>
+</div>
+<!-- Ledger Amount Exposure -->
+<div class="mt-2 mb-4">
+<span class="text-2xl font-semibold tabular-nums text-[#001C64] tracking-tight">$86.00</span>
+<span class="text-xs font-medium text-[#687173] ml-1 uppercase">USD</span>
+</div>
+<!-- Structured Ledger Attributes -->
+<dl class="space-y-2.5 text-sm">
+<div class="flex items-center justify-between">
+<dt class="text-[#687173] text-xs">Order</dt>
+<dd class="text-[#001C64] font-medium text-xs">HF-1044</dd>
+</div>
+<div class="flex items-center justify-between">
+<dt class="text-[#687173] text-xs">PayPal reference</dt>
+<dd class="font-mono text-xs text-[#001C64] bg-[#F5F7FA] px-1.5 py-0.5 rounded border border-[#E6E8EB]">8F21K4A</dd>
+</div>
+<div class="flex items-center justify-between">
+<dt class="text-[#687173] text-xs">Updated</dt>
+<dd class="text-[#687173] text-xs">12 min ago</dd>
+</div>
+</dl>
+</div>
+<!-- Hairline Divider -->
+<div class="h-[1px] w-full bg-[#E6E8EB] my-5"></div>
+<!-- Regulatory & System Guardrail Notice -->
+<div>
+<p class="text-xs text-[#687173] leading-relaxed">
+            The assistant cannot approve or send a refund.
+          </p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Baseline Operational Footer (Shared Component) -->
+<footer class="w-full py-4 px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center border-t border-[#E6E8EB] bg-[#FFFFFF] mt-8 text-xs text-[#687173]">
+<div class="font-normal mb-2 md:mb-0">
+      © 2025 PayFlow Guardian Inc. Financial Operations Infrastructure. All rights reserved.
+    </div>
+<div class="flex items-center gap-6">
+<a class="hover:text-[#0070E0] transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-[#0070E0] transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-[#0070E0] transition-colors" href="#">Compliance &amp; Audits</a>
+<a class="hover:text-[#0070E0] transition-colors" href="#">Status</a>
+<a class="hover:text-[#0070E0] transition-colors" href="#">Cookie Preferences</a>
+</div>
+</footer>
+</body></html>

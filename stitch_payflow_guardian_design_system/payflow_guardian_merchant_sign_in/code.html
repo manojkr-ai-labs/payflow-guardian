@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PayFlow Guardian - Merchant Sign In</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#d1d8ff",
+            "tertiary-container": "#bf5100",
+            "on-tertiary-fixed": "#341100",
+            "on-primary-fixed": "#001b3f",
+            "primary-container": "#0070e0",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f3f2ff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c1c6d6",
+            "secondary-fixed-dim": "#afc7f8",
+            "tertiary-fixed-dim": "#ffb692",
+            "primary-fixed": "#d7e3ff",
+            "surface-container-highest": "#dce1ff",
+            "on-surface": "#001551",
+            "on-tertiary-fixed-variant": "#793000",
+            "on-tertiary-container": "#fff8f5",
+            "tertiary": "#983f00",
+            "on-background": "#001551",
+            "on-primary-container": "#f9f9ff",
+            "primary-fixed-dim": "#abc7ff",
+            "on-surface-variant": "#414753",
+            "on-secondary-fixed": "#001b3f",
+            "on-primary-fixed-variant": "#00458f",
+            "background": "#faf8ff",
+            "surface": "#faf8ff",
+            "secondary-container": "#b4ccfe",
+            "surface-container-high": "#e4e7ff",
+            "inverse-on-surface": "#efefff",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#132a71",
+            "surface-container": "#ebedff",
+            "on-secondary-fixed-variant": "#2e4770",
+            "surface-variant": "#dce1ff",
+            "secondary": "#475f8a",
+            "outline": "#717785",
+            "on-secondary-container": "#3e5681",
+            "secondary-fixed": "#d7e3ff",
+            "error-container": "#ffdad6",
+            "primary": "#0058b2",
+            "surface-bright": "#faf8ff",
+            "tertiary-fixed": "#ffdbcb",
+            "inverse-primary": "#abc7ff",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#005cba"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "margin-desktop": "2rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-default": ["Inter"],
+            "caption": ["Inter"],
+            "chip-label": ["Inter"],
+            "metadata-caps": ["Inter"],
+            "body-secondary": ["Inter"],
+            "currency-md": ["Inter"],
+            "display-currency": ["Inter"],
+            "title-page": ["Inter"],
+            "title-section": ["Inter"],
+            "body-medium": ["Inter"],
+            "title-page-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "body-default": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "caption": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "chip-label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "metadata-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "body-secondary": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "currency-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-currency": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "title-page": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "title-section": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "title-page-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+  </style>
+</head>
+<body class="h-full bg-[#F5F7FA] font-body-default text-body-default text-[#001C64] antialiased selection:bg-[#0070E0] selection:text-white">
+<div class="min-h-screen w-full flex flex-col lg:flex-row">
+<!-- LEFT PANEL: 58% width, Financial Brand & Operations Orientation -->
+<section class="w-full lg:w-[58%] bg-[#F5F7FA] border-b lg:border-b-0 lg:border-r border-[#E6E8EB] px-8 py-10 sm:px-12 sm:py-12 lg:px-20 lg:py-16 flex flex-col justify-between">
+<!-- Top: Identity & Environment Chip -->
+<div class="flex items-center space-x-3">
+<span class="font-title-section text-title-section text-[26px] leading-8 font-semibold tracking-tight text-[#001C64]">
+          PayFlow Guardian
+        </span>
+<span class="inline-flex items-center h-[22px] px-2 rounded-[4px] bg-[#EEF2F6] text-[#3D4C66] font-chip-label text-chip-label font-semibold tracking-wider">
+          SANDBOX
+        </span>
+</div>
+<!-- Middle: Core Directive & Operational Anchors -->
+<div class="my-14 lg:my-auto max-w-xl">
+<h1 class="text-[38px] sm:text-[40px] leading-[46px] font-semibold text-[#001C64] tracking-tight">
+          See what PayPal confirmed, then decide the next step.
+        </h1>
+<!-- Structured hairline operational list -->
+<div class="mt-10 space-y-4">
+<div class="border-l-2 border-[#0070E0] pl-3.5 py-0.5">
+<p class="text-[15px] leading-snug text-[#687173] font-normal">
+              Check a payment against PayPal Sandbox
+            </p>
+</div>
+<div class="border-l-2 border-[#0070E0] pl-3.5 py-0.5">
+<p class="text-[15px] leading-snug text-[#687173] font-normal">
+              Read the status in plain language
+            </p>
+</div>
+<div class="border-l-2 border-[#0070E0] pl-3.5 py-0.5">
+<p class="text-[15px] leading-snug text-[#687173] font-normal">
+              Approve a refund before it is sent
+            </p>
+</div>
+</div>
+</div>
+<!-- Bottom: System Compliance Notice -->
+<div class="pt-6">
+<p class="text-[13px] leading-5 text-[#687173]">
+          Demo uses PayPal Sandbox. Nothing here moves live money.
+        </p>
+</div>
+</section>
+<!-- RIGHT PANEL: 42% width, Transactional Entry Console -->
+<section class="w-full lg:w-[42%] bg-[#FFFFFF] flex items-center justify-center p-6 sm:p-10 lg:p-12">
+<!-- Card Container: Strict 8px radius, 1px #E6E8EB border, subtle elevated shadow -->
+<div class="w-full max-w-[420px] bg-[#FFFFFF] border border-[#E6E8EB] rounded-[8px] p-8 sm:p-10 shadow-[0_1px_2px_rgba(0,28,100,0.06)]">
+<!-- Header Group -->
+<div class="mb-6">
+<p class="font-metadata-caps text-metadata-caps uppercase text-[#687173] tracking-[0.06em]">
+            MERCHANT SIGN IN
+          </p>
+<h2 class="text-[26px] leading-[32px] font-semibold text-[#001C64] tracking-tight mt-1.5">
+            Open the workspace
+          </h2>
+</div>
+<!-- Authentication Form -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<div>
+<label class="block font-body-medium text-body-medium text-[#001C64] mb-1.5" for="email">
+              Email address
+            </label>
+<input class="w-full h-10 px-3.5 py-2.5 bg-[#FFFFFF] border border-[#E6E8EB] rounded-[6px] font-body-default text-body-default text-[#001C64] placeholder-[#687173] focus:border-[#0070E0] focus:ring-2 focus:ring-[#0070E0]/40 outline-none transition-colors" id="email" name="email" required="" type="email" value="owner@payflow.test"/>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-body-medium text-body-medium text-[#001C64]" for="password">
+                Password
+              </label>
+<a class="font-caption text-caption text-[#0070E0] hover:text-[#003087] transition-colors duration-150" href="#">
+                Reset
+              </a>
+</div>
+<input class="w-full h-10 px-3.5 py-2.5 bg-[#FFFFFF] border border-[#E6E8EB] rounded-[6px] font-body-default text-body-default text-[#001C64] placeholder-[#687173] focus:border-[#0070E0] focus:ring-2 focus:ring-[#0070E0]/40 outline-none transition-colors" id="password" name="password" placeholder="••••••••••••" required="" type="password"/>
+</div>
+<div class="pt-2">
+<button class="w-full h-10 px-4 bg-[#0070E0] hover:bg-[#003087] text-white font-body-medium text-body-medium rounded-[6px] transition-colors duration-150 flex items-center justify-center cursor-pointer shadow-none focus:outline-none focus:ring-2 focus:ring-[#0070E0]/40" type="submit">
+              Sign in
+            </button>
+</div>
+</form>
+<!-- Divider and Quiet Metadata Credentials -->
+<div class="mt-8 pt-6 border-t border-[#E6E8EB]">
+<div class="space-y-1.5">
+<p class="font-caption text-caption text-[#687173] flex items-center justify-between">
+<span class="font-medium text-[#414753]">Owner</span>
+<span class="font-mono text-[12px] text-[#687173]">owner@payflow.test</span>
+</p>
+<p class="font-caption text-caption text-[#687173] flex items-center justify-between">
+<span class="font-medium text-[#414753]">Support</span>
+<span class="font-mono text-[12px] text-[#687173]">support@payflow.test</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</body></html>

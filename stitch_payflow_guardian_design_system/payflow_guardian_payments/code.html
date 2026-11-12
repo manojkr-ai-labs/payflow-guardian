@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Payments · PayFlow Guardian</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#132a71",
+            "primary": "#0058b2",
+            "surface": "#faf8ff",
+            "outline-variant": "#c1c6d6",
+            "surface-container-high": "#e4e7ff",
+            "tertiary-container": "#bf5100",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb692",
+            "secondary-container": "#b4ccfe",
+            "secondary": "#475f8a",
+            "error": "#ba1a1a",
+            "surface-bright": "#faf8ff",
+            "surface-tint": "#005cba",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#001551",
+            "background": "#faf8ff",
+            "primary-fixed": "#d7e3ff",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#abc7ff",
+            "secondary-fixed-dim": "#afc7f8",
+            "surface-variant": "#dce1ff",
+            "tertiary": "#983f00",
+            "on-secondary-fixed-variant": "#2e4770",
+            "on-primary-container": "#f9f9ff",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#3e5681",
+            "on-tertiary-fixed": "#341100",
+            "primary-fixed-dim": "#abc7ff",
+            "inverse-on-surface": "#efefff",
+            "on-primary-fixed": "#001b3f",
+            "on-tertiary-fixed-variant": "#793000",
+            "on-error-container": "#93000a",
+            "outline": "#717785",
+            "on-surface-variant": "#414753",
+            "surface-container-highest": "#dce1ff",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#00458f",
+            "on-tertiary-container": "#fff8f5",
+            "surface-container": "#ebedff",
+            "tertiary-fixed": "#ffdbcb",
+            "secondary-fixed": "#d7e3ff",
+            "surface-dim": "#d1d8ff",
+            "on-secondary-fixed": "#001b3f",
+            "primary-container": "#0070e0",
+            "on-surface": "#001551",
+            "surface-container-low": "#f3f2ff",
+            "pp-blue": "#0070E0",
+            "pp-blue-hover": "#003087",
+            "pf-navy": "#001C64",
+            "pf-muted": "#687173",
+            "pf-border": "#E6E8EB",
+            "pf-bg": "#F5F7FA"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "2rem",
+            "margin": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "metadata-caps": ["Inter", "sans-serif"],
+            "body-medium": ["Inter", "sans-serif"],
+            "display-currency": ["Inter", "sans-serif"],
+            "body-secondary": ["Inter", "sans-serif"],
+            "chip-label": ["Inter", "sans-serif"],
+            "body-default": ["Inter", "sans-serif"],
+            "title-section": ["Inter", "sans-serif"],
+            "title-page": ["Inter", "sans-serif"],
+            "title-page-mobile": ["Inter", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "currency-md": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "metadata-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "display-currency": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-secondary": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "chip-label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-default": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-section": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "title-page": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "title-page-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "caption": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "currency-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .t-num { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="bg-[#F5F7FA] text-[#001C64] font-body-default min-h-screen antialiased flex flex-col justify-between selection:bg-[#0070E0] selection:text-white">
+<!-- Application Shell / Top Navigation Bar -->
+<header class="w-full h-16 px-8 bg-surface-container-lowest border-b border-[#E6E8EB] flex items-center justify-between sticky top-0 z-30">
+<div class="flex items-center gap-8 h-full">
+<!-- Logo + Environment Tag -->
+<div class="flex items-center gap-2.5">
+<span class="font-title-section text-title-section font-semibold text-[#001C64] tracking-tight">PayFlow Guardian</span>
+<span class="bg-slate-100 text-slate-600 text-[11px] px-2 py-0.5 rounded font-mono uppercase font-semibold tracking-wide border border-slate-200">SANDBOX</span>
+</div>
+<!-- Navigation Hierarchy -->
+<nav class="flex items-center gap-6 h-full text-sm">
+<a class="h-full inline-flex items-center text-[#687173] hover:text-[#001C64] font-normal transition-colors duration-150" href="#">
+          Dashboard
+        </a>
+<a class="h-full inline-flex items-center text-[#0070E0] font-medium border-b-2 border-[#0070E0] pt-0.5 transition-colors duration-150" href="#">
+          Payments
+        </a>
+<a class="h-full inline-flex items-center text-[#687173] hover:text-[#001C64] font-normal transition-colors duration-150" href="#">
+          Assistant
+        </a>
+<a class="h-full inline-flex items-center text-[#687173] hover:text-[#001C64] font-normal transition-colors duration-150" href="#">
+          Refunds
+        </a>
+</nav>
+</div>
+<!-- User / Workspace Context -->
+<div class="flex items-center gap-5">
+<div class="text-right"><div class="text-[13px] font-medium text-[#001C64] leading-tight">Maya Chen</div>
+<div class="text-[12px] text-[#687173] leading-tight mt-0.5">Owner · Harbor &amp; Co.</div></div>
+<div class="h-7 w-[1px] bg-[#E6E8EB]"></div>
+<button class="text-sm text-[#687173] hover:text-[#001C64] font-normal transition-colors duration-150" type="button">
+        Sign out
+      </button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="w-full flex-1 px-8 py-8 max-w-[1440px] mx-auto">
+<!-- Page Header Section -->
+<div class="flex flex-col">
+<h1 class="font-title-page text-title-page font-semibold text-[#001C64]">Payments</h1>
+<p class="font-body-default text-[15px] text-[#687173] mt-1">Orders created in this workspace and completed through PayPal Sandbox.</p>
+</div>
+<!-- Operations Action Bar / Toolbar -->
+<div class="mt-6 flex items-center justify-between gap-4">
+<!-- Search and Filtering Cluster -->
+<div class="flex items-center gap-3">
+<!-- Search Input -->
+<div class="relative w-80">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#687173]">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</span>
+<input class="w-full h-10 pl-9 pr-3.5 bg-white border border-[#E6E8EB] rounded-[6px] text-sm text-[#001C64] placeholder-[#687173] focus:outline-none focus:border-[#0070E0] focus:ring-1 focus:ring-[#0070E0] transition-colors" placeholder="Search by PayPal reference or customer" type="text">
+</div>
+<!-- Filter Chips Row -->
+<div class="flex items-center gap-2">
+<!-- Completed (Active) -->
+<button class="inline-flex items-center h-10 px-3 py-1.5 rounded-[6px] text-xs font-medium border-[1.5px] border-[#0070E0] bg-blue-50/50 text-[#0070E0] transition-colors" type="button">
+            Completed
+          </button>
+<!-- Pending (Inactive) -->
+<button class="inline-flex items-center h-10 px-3 py-1.5 rounded-[6px] text-xs font-medium border border-[#E6E8EB] bg-white text-[#687173] hover:text-[#001C64] hover:bg-slate-50 transition-colors" type="button">
+            Pending
+          </button>
+<!-- Failed (Inactive) -->
+<button class="inline-flex items-center h-10 px-3 py-1.5 rounded-[6px] text-xs font-medium border border-[#E6E8EB] bg-white text-[#687173] hover:text-[#001C64] hover:bg-slate-50 transition-colors" type="button">
+            Failed
+          </button>
+<!-- Refunded (Inactive) -->
+<button class="inline-flex items-center h-10 px-3 py-1.5 rounded-[6px] text-xs font-medium border border-[#E6E8EB] bg-white text-[#687173] hover:text-[#001C64] hover:bg-slate-50 transition-colors" type="button">
+            Refunded
+          </button>
+</div>
+</div>
+<!-- Action Button -->
+<div>
+<button class="h-10 px-4 bg-[#0070E0] hover:bg-[#003087] text-white text-sm font-medium rounded-[6px] inline-flex items-center gap-1.5 transition-colors duration-150 shadow-none" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New test order</span>
+</button>
+</div>
+</div>
+<!-- Structured Tabular Data Grid -->
+<div class="mt-6 bg-white border border-[#E6E8EB] rounded-[8px] overflow-hidden">
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white border-b border-[#E6E8EB] h-[40px]">
+<th class="py-3 px-6 font-metadata-caps text-[12px] uppercase tracking-wider text-[#687173] font-medium" scope="col">Created</th>
+<th class="py-3 px-6 font-metadata-caps text-[12px] uppercase tracking-wider text-[#687173] font-medium" scope="col">Customer</th>
+<th class="py-3 px-6 font-metadata-caps text-[12px] uppercase tracking-wider text-[#687173] font-medium" scope="col">Order</th>
+<th class="py-3 px-6 font-metadata-caps text-[12px] uppercase tracking-wider text-[#687173] font-medium text-right" scope="col">Amount</th>
+<th class="py-3 px-6 font-metadata-caps text-[12px] uppercase tracking-wider text-[#687173] font-medium" scope="col">Currency</th>
+<th class="py-3 px-6 font-metadata-caps text-[12px] uppercase tracking-wider text-[#687173] font-medium" scope="col">Status</th>
+<th class="py-3 px-6 font-metadata-caps text-[12px] uppercase tracking-wider text-[#687173] font-medium" scope="col">PayPal reference</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E6E8EB] text-sm text-[#001C64]">
+<!-- Row 1: Active Hover State Demonstration -->
+<tr class="bg-[#F5F7FA] transition-colors duration-150">
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-[13.5px]">Today, 10:14 AM</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-[#001C64]">Elena Rostova</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">#ORD-9842</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-right t-num">128.40</td>
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-xs font-mono">USD</td>
+<td class="py-3.5 px-6 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-[4px] text-xs font-medium bg-[#E8F6EE] text-[#0E7A3D]">Completed</span>
+</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs font-medium text-[#0070E0]">
+                5QK28914M7294021K
+              </td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-[#F5F7FA] transition-colors duration-150">
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-[13.5px]">Today, 8:48 AM</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-[#001C64]">Jonah Hale</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">#ORD-9841</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-right t-num">86.00</td>
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-xs font-mono">USD</td>
+<td class="py-3.5 px-6 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-[4px] text-xs font-medium bg-[#FFF6E0] text-[#8A5A00]">Pending</span>
+</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">
+                8F21K4A910284729P
+              </td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-[#F5F7FA] transition-colors duration-150">
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-[13.5px]">Yesterday, 4:22 PM</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-[#001C64]">Marcus Vance</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">#ORD-9840</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-right t-num">42.50</td>
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-xs font-mono">USD</td>
+<td class="py-3.5 px-6 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-[4px] text-xs font-medium bg-[#E8F6EE] text-[#0E7A3D]">Completed</span>
+</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">
+                3TY77189L4401923A
+              </td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-[#F5F7FA] transition-colors duration-150">
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-[13.5px]">Yesterday, 1:15 PM</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-[#001C64]">Priya Shah</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">#ORD-9839</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-right t-num">210.00</td>
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-xs font-mono">USD</td>
+<td class="py-3.5 px-6 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-[4px] text-xs font-medium bg-[#FDECEC] text-[#B42318]">Failed</span>
+</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">
+                6LM33QD881920412B
+              </td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-[#F5F7FA] transition-colors duration-150">
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-[13.5px]">May 13, 11:30 AM</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-[#001C64]">Chloe Dupont</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">#ORD-9838</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-right t-num">18.25</td>
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-xs font-mono">USD</td>
+<td class="py-3.5 px-6 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-[4px] text-xs font-medium bg-[#E8F6EE] text-[#0E7A3D]">Completed</span>
+</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">
+                9PL11452M3381900C
+              </td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-[#F5F7FA] transition-colors duration-150">
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-[13.5px]">May 12, 3:05 PM</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-[#001C64]">Liam O'Connor</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">#ORD-9837</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-medium text-right t-num">174.00</td>
+<td class="py-3.5 px-6 whitespace-nowrap text-[#687173] text-xs font-mono">USD</td>
+<td class="py-3.5 px-6 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-[4px] text-xs font-medium bg-[#E8F6EE] text-[#0E7A3D]">Completed</span>
+</td>
+<td class="py-3.5 px-6 whitespace-nowrap font-mono text-xs text-[#687173]">
+                4JK66201P8829104E
+              </td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination/Status Sub-bar -->
+<div class="px-6 py-3 bg-white border-t border-[#E6E8EB] flex items-center justify-between text-xs text-[#687173]">
+<div class="flex items-center gap-1.5">
+<span>Showing 6 of 6 sandbox payments</span>
+<span class="text-slate-300">·</span>
+<span>Auto-sync active</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2 py-1 rounded text-slate-400 cursor-not-allowed" disabled="" type="button">Previous</button>
+<span class="text-slate-300">|</span>
+<button class="px-2 py-1 rounded text-slate-400 cursor-not-allowed" disabled="" type="button">Next</button>
+</div>
+</div>
+</div>
+<!-- Generous quiet space beneath data table -->
+<div class="h-20"></div>
+</main>
+<!-- Grounded Infrastructure Footer -->
+<footer class="w-full py-4 px-8 bg-surface-container-lowest border-t border-[#E6E8EB] flex flex-col md:flex-row justify-between items-center text-xs text-[#687173]">
+<div class="font-caption text-caption text-[#687173]">
+      © 2025 PayFlow Guardian Inc. Financial Operations Infrastructure. All rights reserved.
+    </div>
+<div class="flex items-center gap-6 mt-3 md:mt-0 font-caption text-caption">
+<a class="text-[#687173] hover:text-[#0070E0] transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-[#687173] hover:text-[#0070E0] transition-colors duration-150" href="#">Terms of Service</a>
+<a class="text-[#687173] hover:text-[#0070E0] transition-colors duration-150" href="#">Compliance &amp; Audits</a>
+<a class="text-[#687173] hover:text-[#0070E0] transition-colors duration-150" href="#">Status</a>
+<a class="text-[#687173] hover:text-[#0070E0] transition-colors duration-150" href="#">Cookie Preferences</a>
+</div>
+</footer>
+
+
+</body></html>

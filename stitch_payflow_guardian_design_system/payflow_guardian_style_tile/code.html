@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>PayFlow Guardian · Style Tile & Visual System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F5F7FA;
+      color: #001C64;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    .shadow-subtle {
+      box-shadow: 0 1px 2px rgba(0, 28, 100, 0.06);
+    }
+    .focus-ring:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 112, 224, 0.4);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F5F7FA] text-[#001C64] p-12">
+  <div class="max-w-[1344px] mx-auto space-y-12">
+
+    <!-- Top Bar / Meta Rail -->
+    <header class="border-b border-[#E6E8EB] pb-8 flex items-baseline justify-between">
+      <div>
+        <div class="text-[12px] uppercase tracking-[0.06em] text-[#687173] font-semibold mb-2">Design System &amp; Component Spec · v1.0</div>
+        <div class="flex items-center gap-3">
+          <h1 class="text-[28px] font-semibold text-[#001C64] tracking-tight">PayFlow Guardian</h1>
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium tracking-wide uppercase bg-[#EEF2F6] text-[#3D4C66] border border-[#E6E8EB]">Sandbox</span>
+        </div>
+      </div>
+      <div class="text-right text-[13px] text-[#687173]">
+        Canvas 1440px · 8px Grid · Strict PayPal Public Product Palette
+      </div>
+    </header>
+
+    <!-- Main Grid: Spec Columns -->
+    <div class="grid grid-cols-12 gap-10 items-start">
+      
+      <!-- Left Rail: Visual Tokens & Foundations -->
+      <section class="col-span-4 space-y-10">
+        <!-- Palette -->
+        <div>
+          <div class="text-[12px] uppercase tracking-[0.06em] text-[#687173] font-semibold mb-4">Core Palette</div>
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-[#E6E8EB] shadow-subtle">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded border border-[#E6E8EB] bg-[#0070E0]"></div>
+                <div>
+                  <div class="text-[13px] font-semibold text-[#001C64]">Action / Primary Blue</div>
+                  <div class="text-[12px] text-[#687173]">#0070E0 · Hover #003087</div>
+                </div>
+              </div>
+              <span class="text-[11px] font-mono text-[#687173]">Sole Accent</span>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-[#E6E8EB] shadow-subtle">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded border border-[#E6E8EB] bg-[#001C64]"></div>
+                <div>
+                  <div class="text-[13px] font-semibold text-[#001C64]">Primary Navy</div>
+                  <div class="text-[12px] text-[#687173]">#001C64</div>
+                </div>
+              </div>
+              <span class="text-[11px] font-mono text-[#687173]">High Contrast</span>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-[#E6E8EB] shadow-subtle">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded border border-[#E6E8EB] bg-[#687173]"></div>
+                <div>
+                  <div class="text-[13px] font-semibold text-[#001C64]">Secondary Text</div>
+                  <div class="text-[12px] text-[#687173]">#687173</div>
+                </div>
+              </div>
+              <span class="text-[11px] font-mono text-[#687173]">Labels / Metadata</span>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-[#E6E8EB] shadow-subtle">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded border border-[#E6E8EB] bg-[#F5F7FA]"></div>
+                <div>
+                  <div class="text-[13px] font-semibold text-[#001C64]">Page Canvas</div>
+                  <div class="text-[12px] text-[#687173]">#F5F7FA</div>
+                </div>
+              </div>
+              <span class="text-[11px] font-mono text-[#687173]">Background</span>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-[#E6E8EB] shadow-subtle">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded border border-[#E6E8EB] bg-white"></div>
+                <div>
+                  <div class="text-[13px] font-semibold text-[#001C64]">Surface &amp; Cards</div>
+                  <div class="text-[12px] text-[#687173]">#FFFFFF · Border #E6E8EB</div>
+                </div>
+              </div>
+              <span class="text-[11px] font-mono text-[#687173]">Panels</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typography & Specs -->
+        <div>
+          <div class="text-[12px] uppercase tracking-[0.06em] text-[#687173] font-semibold mb-4">Typography &amp; Scale</div>
+          <div class="bg-white rounded-lg border border-[#E6E8EB] p-5 shadow-subtle space-y-4">
+            <div>
+              <div class="text-[11px] text-[#687173] uppercase tracking-[0.06em] mb-1">Page Title · 28px Semibold</div>
+              <div class="text-[28px] font-semibold text-[#001C64] leading-tight">Payment Operations</div>
+            </div>
+            <div class="pt-3 border-t border-[#E6E8EB]">
+              <div class="text-[11px] text-[#687173] uppercase tracking-[0.06em] mb-1">Section Label · 12px Uppercase tracking 0.06em</div>
+              <div class="text-[12px] font-semibold tracking-[0.06em] uppercase text-[#687173]">TRANSACTION DETAILS</div>
+            </div>
+            <div class="pt-3 border-t border-[#E6E8EB]">
+              <div class="text-[11px] text-[#687173] uppercase tracking-[0.06em] mb-1">Tabular Currency · 20–32px Medium</div>
+              <div class="text-[28px] font-semibold text-[#001C64] tabular-nums tracking-tight">$1,428.50 <span class="text-[16px] font-normal text-[#687173]">USD</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rules & Metrics Note -->
+        <div class="bg-white rounded-lg border border-[#E6E8EB] p-5 shadow-subtle text-[12px] text-[#687173] space-y-2">
+          <div class="text-[12px] uppercase tracking-[0.06em] text-[#001C64] font-semibold">Strict System Rules</div>
+          <ul class="space-y-1.5 list-disc list-inside">
+            <li>Radius: 8px on cards &amp; containers, 6px on inputs &amp; buttons.</li>
+            <li>Shadow: <code>0 1px 2px rgba(0,28,100,0.06)</code> on raised cards only.</li>
+            <li>Focus ring: <code>2px #0070E0 @ 40% opacity</code>.</li>
+            <li>No gradients, no glass, no secondary accents, no illustrations.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Center & Right Rail: Live Interactive Components -->
+      <main class="col-span-8 space-y-10">
+
+        <!-- Status Chips Spec -->
+        <section>
+          <div class="text-[12px] uppercase tracking-[0.06em] text-[#687173] font-semibold mb-4">Status Chips (Small &amp; Flat)</div>
+          <div class="bg-white rounded-lg border border-[#E6E8EB] p-6 shadow-subtle">
+            <div class="flex flex-wrap items-center gap-4">
+              <!-- Completed -->
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center px-2.5 py-1 rounded text-[12px] font-medium bg-[#E8F6EE] text-[#0E7A3D]">
+                  Completed
+                </span>
+                <span class="text-[11px] font-mono text-[#687173]">#0E7A3D on #E8F6EE</span>
+              </div>
+
+              <!-- Pending -->
+              <div class="flex items-center gap-2 ml-4">
+                <span class="inline-flex items-center px-2.5 py-1 rounded text-[12px] font-medium bg-[#FFF6E0] text-[#8A5A00]">
+                  Pending
+                </span>
+                <span class="text-[11px] font-mono text-[#687173]">#8A5A00 on #FFF6E0</span>
+              </div>
+
+              <!-- Failed -->
+              <div class="flex items-center gap-2 ml-4">
+                <span class="inline-flex items-center px-2.5 py-1 rounded text-[12px] font-medium bg-[#FDECEC] text-[#B42318]">
+                  Failed
+                </span>
+                <span class="text-[11px] font-mono text-[#687173]">#B42318 on #FDECEC</span>
+              </div>
+
+              <!-- Refunded -->
+              <div class="flex items-center gap-2 ml-4">
+                <span class="inline-flex items-center px-2.5 py-1 rounded text-[12px] font-medium bg-[#EEF2F6] text-[#3D4C66]">
+                  Refunded
+                </span>
+                <span class="text-[11px] font-mono text-[#687173]">#3D4C66 on #EEF2F6</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Actions & Form Controls -->
+        <section>
+          <div class="text-[12px] uppercase tracking-[0.06em] text-[#687173] font-semibold mb-4">Form Controls &amp; Button Hierarchy</div>
+          <div class="bg-white rounded-lg border border-[#E6E8EB] p-6 shadow-subtle space-y-6">
+            
+            <!-- Buttons -->
+            <div>
+              <div class="text-[11px] uppercase tracking-[0.06em] text-[#687173] font-semibold mb-3">Button Actions</div>
+              <div class="flex items-center gap-3">
+                <!-- Primary Button -->
+                <button type="button" class="px-4 py-2 rounded-[6px] bg-[#0070E0] hover:bg-[#003087] text-white text-[13px] font-semibold transition-colors duration-150 focus-ring cursor-pointer">
+                  Approve refund
+                </button>
+
+                <!-- Secondary Button -->
+                <button type="button" class="px-4 py-2 rounded-[6px] bg-white border border-[#E6E8EB] hover:bg-[#F5F7FA] text-[#001C64] text-[13px] font-semibold transition-colors duration-150 focus-ring cursor-pointer">
+                  Reject
+                </button>
+
+                <!-- Quiet Text Button -->
+                <button type="button" class="px-3 py-2 rounded-[6px] text-[#0070E0] hover:text-[#003087] text-[13px] font-medium transition-colors duration-150 focus-ring cursor-pointer">
+                  View payment
+                </button>
+              </div>
+            </div>
+
+            <!-- Input Field -->
+            <div class="pt-5 border-t border-[#E6E8EB]">
+              <div class="max-w-md">
+                <label for="paypal-ref" class="block text-[12px] font-semibold text-[#001C64] mb-1.5">
+                  Search by PayPal reference
+                </label>
+                <div class="relative">
+                  <input 
+                    id="paypal-ref"
+                    type="text" 
+                    placeholder="e.g. 5QK28914M7294021K" 
+                    class="w-full px-3.5 py-2 bg-white border border-[#E6E8EB] rounded-[6px] text-[13px] text-[#001C64] placeholder-[#687173] focus:border-[#0070E0] focus-ring transition-all outline-none"
+                    value=""
+                  />
+                </div>
+                <div class="text-[11px] text-[#687173] mt-1.5">Radius 6px · 1px hairline border #E6E8EB · 2px focus ring @ 40%</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- System Alert -->
+        <section>
+          <div class="text-[12px] uppercase tracking-[0.06em] text-[#687173] font-semibold mb-4">Informational Banner / System Alert</div>
+          <div class="bg-white rounded-lg border border-[#E6E8EB] p-4 shadow-subtle flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#687173] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="text-[13px] text-[#001C64] leading-relaxed">
+              <span class="font-semibold">Notice:</span> PayPal has not confirmed this status yet.
+            </div>
+          </div>
+        </section>
+
+        <!-- Payment Data Row in Context -->
+        <section>
+          <div class="text-[12px] uppercase tracking-[0.06em] text-[#687173] font-semibold mb-4">Payment Operations Row (Table / List Representation)</div>
+          <div class="bg-white rounded-lg border border-[#E6E8EB] shadow-subtle overflow-hidden">
+            <!-- Table Header -->
+            <div class="bg-[#F5F7FA] border-b border-[#E6E8EB] px-6 py-3 grid grid-cols-12 text-[11px] font-semibold uppercase tracking-[0.06em] text-[#687173]">
+              <div class="col-span-3">Merchant / Customer</div>
+              <div class="col-span-2">Amount</div>
+              <div class="col-span-2">Status</div>
+              <div class="col-span-3">Reference</div>
+              <div class="col-span-2 text-right">Timestamp</div>
+            </div>
+
+            <!-- Single Required Payment Row -->
+            <div class="px-6 py-4 grid grid-cols-12 items-center hover:bg-[#F5F7FA]/50 transition-colors border-b border-[#E6E8EB] last:border-b-0">
+              <!-- Customer / Merchant -->
+              <div class="col-span-3">
+                <div class="text-[13px] font-semibold text-[#001C64]">Harbor &amp; Co.</div>
+                <div class="text-[11px] text-[#687173]">Direct Checkout</div>
+              </div>
+
+              <!-- Amount (Tabular figures) -->
+              <div class="col-span-2">
+                <div class="text-[15px] font-semibold text-[#001C64] tabular-nums">$128.40 <span class="text-[11px] font-normal text-[#687173]">USD</span></div>
+              </div>
+
+              <!-- Status Chip -->
+              <div class="col-span-2">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-[#E8F6EE] text-[#0E7A3D]">
+                  Completed
+                </span>
+              </div>
+
+              <!-- Reference ID -->
+              <div class="col-span-3">
+                <div class="text-[12px] font-mono text-[#001C64]">5QK28…</div>
+                <div class="text-[11px] text-[#687173]">PayPal ID</div>
+              </div>
+
+              <!-- Timestamp & Actions -->
+              <div class="col-span-2 text-right">
+                <div class="text-[12px] text-[#001C64]">Today, 9:14 AM</div>
+                <button type="button" class="text-[11px] text-[#0070E0] hover:text-[#003087] font-medium mt-0.5 inline-block">Details</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- Footer Meta -->
+    <footer class="pt-8 border-t border-[#E6E8EB] flex items-center justify-between text-[11px] text-[#687173]">
+      <div>PayFlow Guardian Visual System · Crafted for quiet, exact financial operations</div>
+      <div>Zero gradients · Zero illustrations · Strict 8px rhythmic grid</div>
+    </footer>
+
+  </div>
+</body>
+</html>

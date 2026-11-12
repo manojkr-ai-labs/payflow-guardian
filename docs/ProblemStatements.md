@@ -1,0 +1,211 @@
+# PayFlow Guardian
+
+**Problem Statement and Project Plan**  
+PayPal AI Hackathon | Solo Project
+
+## 1. Project Summary
+
+PayFlow Guardian is an AI-powered payment assistant for small online businesses. It helps business owners check PayPal payments, understand payment problems, and decide what to do next. It can prepare refunds, but the business owner must review and approve each refund before it is sent to PayPal.
+
+The goal is to help merchants move from payment confusion to a clear and safe next step.
+
+## 2. The Problem
+
+Small businesses often do not have a team dedicated to managing payments. When a customer says a payment failed, is still pending, or needs a refund, the owner may need to check several records and screens to understand the situation.
+
+This takes time, makes payment issues harder to explain, and increases the chance of mistakes. A normal chatbot may answer from the conversation without checking the real payment. A normal dashboard may show payment details but still leave the investigation to the merchant.
+
+Small businesses need one place that checks real PayPal information, explains it in simple language, and guides the merchant through the next step safely.
+
+## 3. The Solution
+
+PayFlow Guardian brings payment information, AI assistance, and safe payment actions into one workspace.
+
+Merchants can:
+
+- Check whether a payment is pending, completed, failed, or refunded.
+- Search for a payment and view its details.
+- Ask the AI assistant to investigate a payment problem.
+- Get an explanation based on information returned by PayPal.
+- Receive a recommended next step.
+- Prepare a refund request for review.
+- Approve or reject a refund.
+- View a record of important payment activities.
+
+The hackathon demo will use PayPal Sandbox. PayPal's response, not the AI's guess, will confirm payment results.
+
+## 4. Who Will Use It?
+
+Main users are small online business owners who manage payments and customer questions without a dedicated payment support team.
+
+Other users include customer support and operations staff who help answer payment questions and manage refund requests.
+
+## 5. How It Works
+
+### A. Create and complete a payment
+
+1. The merchant selects a test order.
+2. The application checks the order amount and currency on the server.
+3. The application creates an order using PayPal Sandbox.
+4. The customer approves the payment through PayPal.
+5. The application completes the payment using PayPal.
+6. The result is saved and shown to the merchant.
+
+### B. Check and investigate a payment
+
+1. The merchant searches for or opens a payment.
+2. The application gets the latest available payment information from PayPal.
+3. The AI assistant explains the payment status in plain English.
+4. It points out missing information or details that need attention.
+5. It suggests a suitable next step.
+
+The assistant must not guess a payment status. If the application cannot confirm it, the assistant must say so clearly.
+
+### C. Prepare and approve a refund
+
+1. The merchant asks to prepare a refund.
+2. The application checks the payment and refund details.
+3. The AI assistant prepares a request showing the payment reference, amount, currency, and reason.
+4. The merchant reviews and approves or rejects the request.
+5. If approved, the server checks the request again and sends it to PayPal Sandbox.
+6. The application shows the actual result and saves a record of the action.
+
+A refund must never be sent only because the AI suggested it. The merchant must approve it first.
+
+### D. View payment activity
+
+The merchant can see recent payments, their status, amount, currency, PayPal reference, and actions that need attention.
+
+## 6. Main Features
+
+### Required for the first working version
+
+- PayPal Sandbox connection.
+- Creation and completion of a test payment.
+- Payment search and detail view.
+- AI assistant for payment questions.
+- Payment investigation using PayPal information.
+- Refund request preparation.
+- Merchant approval before a refund is sent.
+- A record of important actions.
+- Clear messages when something fails or cannot be confirmed.
+
+### If time allows
+
+- PayPal webhook event handling.
+- A list of payments that need attention.
+- A timeline of payment and refund activity.
+- A check that compares saved payment information with the latest PayPal information.
+
+## 7. How the AI Assistant Is Used
+
+The AI assistant understands the merchant's question and chooses from a limited set of approved actions.
+
+It can find payment information, list recent payments, create a test order, complete an approved payment, investigate a payment, prepare a refund request, and check the status of an operation.
+
+The assistant cannot give itself permission to approve or send a refund. The server checks every sensitive action.
+
+## 8. Technology Plan
+
+| Layer | Choice | Responsibility |
+| --- | --- | --- |
+| Frontend | Next.js and TypeScript | Merchant dashboard, payment pages, AI chat, and refund approval screen |
+| Backend | Python and FastAPI | Requests, payment rules, AI actions, PayPal communication, and activity records |
+| Database | PostgreSQL | Orders, payments, refund requests, approvals, and activity history |
+| External services | PayPal Developer Platform Sandbox and an AI model | Test payments; understanding requests and explaining payment information |
+
+The first version will use one backend application with clearly separated parts. This keeps the project easier to build, test, and maintain.
+
+## 9. Safety and Trust
+
+- PayPal information, not an AI guess, confirms payment status.
+- PayPal secret keys and access tokens stay on the server.
+- The application checks who is allowed to view or change a payment.
+- The server checks the amount and currency before payment actions.
+- A refund needs clear approval from the merchant.
+- If a refund request changes, the merchant must approve it again.
+- Repeated requests must not cause an unwanted second refund.
+- If PayPal's result is unclear, the application says that the payment needs checking.
+- Important actions are recorded.
+- The project will not store card numbers or security codes.
+
+## 10. How We Will Test It
+
+We will check that:
+
+- A test payment can be created and completed through PayPal Sandbox.
+- Payment details shown in the application match the provider response.
+- The AI explains payment information without making up facts.
+- A refund cannot be sent before merchant approval.
+- A changed refund request needs approval again.
+- Users cannot access payments they are not allowed to view.
+- Repeated requests and webhook events are handled safely.
+- Secret keys do not appear in the website, source code, or logs.
+- Errors and unclear results are shown honestly.
+
+## 11. Build Plan
+
+1. Set up the project and secure configuration.
+2. Connect to PayPal Sandbox.
+3. Create a test order.
+4. Complete customer approval and payment capture.
+5. Save and display payment information.
+6. Add payment search and investigation.
+7. Add the AI assistant.
+8. Add refund preparation and merchant approval.
+9. Save activity history and test important cases.
+10. Add webhooks and payment checks if time allows.
+11. Prepare the README, demo, and hackathon submission.
+
+The main payment and refund journey must work before optional features are added.
+
+## 12. What Is Not Included
+
+- Processing real customer money.
+- Sending refunds without merchant approval.
+- Storing card numbers or security codes.
+- Replacing a full accounting or banking system.
+- Claiming to prevent all fraud or guarantee payment recovery.
+- Giving the AI unrestricted access to commands, databases, or external services.
+
+## 13. What the Judges Should See
+
+The demo should tell one complete story:
+
+1. A merchant creates a test order.
+2. The customer approves the payment through PayPal Sandbox.
+3. PayFlow Guardian shows the confirmed payment result.
+4. The merchant asks the AI assistant to investigate a payment.
+5. The assistant explains information returned by PayPal.
+6. The merchant asks to prepare a refund.
+7. The merchant reviews and approves the refund.
+8. PayFlow Guardian sends the approved request to PayPal Sandbox.
+9. The application shows the result and activity record.
+10. The demo proves that an unapproved refund is blocked.
+
+Any simulated example must be labelled as a test example. Do not claim that a simulated action was completed by PayPal.
+
+## 14. Submission Checklist
+
+Before submitting:
+
+- Make the source code repository public.
+- Add an open-source license.
+- Write a clear README with setup and run instructions.
+- Add an example environment file without real secret values.
+- Remove passwords, API keys, private data, and employer information.
+- Make sure the demo works or provide clear instructions for judges.
+- Record a public YouTube demo under three minutes, as required by the stated hackathon rules.
+- Explain the problem, solution, PayPal integration, AI features, and safety controls.
+- Make sure every claim matches the working project.
+- Check the latest official hackathon rules before final submission.
+
+## 15. Why PayFlow Guardian Is Different
+
+PayFlow Guardian is not just a chatbot that answers payment questions. It connects real payment information from PayPal, AI-assisted investigation, clear recommendations, merchant approval for sensitive actions, and a record of what happened.
+
+This makes it a practical payment operations assistant rather than a general-purpose AI chat application.
+
+## Final Project Definition
+
+PayFlow Guardian is an AI-powered payment operations assistant for small online merchants. It uses PayPal data to check payments, investigate problems, explain possible next steps, and prepare refunds for merchant approval. It makes payment operations easier to understand while keeping important financial decisions under human control.

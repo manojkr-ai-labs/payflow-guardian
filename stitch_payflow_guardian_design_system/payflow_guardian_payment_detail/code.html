@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Payment Detail · HF-1044 · PayFlow Guardian</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#005cba",
+            "on-surface-variant": "#414753",
+            "on-primary-container": "#f9f9ff",
+            "primary-container": "#0070e0",
+            "surface-variant": "#dce1ff",
+            "tertiary-fixed-dim": "#ffb692",
+            "inverse-surface": "#132a71",
+            "primary": "#0058b2",
+            "on-background": "#001551",
+            "secondary-container": "#b4ccfe",
+            "surface-container-highest": "#dce1ff",
+            "secondary": "#475f8a",
+            "outline": "#717785",
+            "surface-bright": "#faf8ff",
+            "on-primary-fixed-variant": "#00458f",
+            "on-tertiary-fixed": "#341100",
+            "on-secondary-container": "#3e5681",
+            "on-tertiary-container": "#fff8f5",
+            "on-tertiary": "#ffffff",
+            "surface-container": "#ebedff",
+            "on-tertiary-fixed-variant": "#793000",
+            "tertiary-container": "#bf5100",
+            "inverse-on-surface": "#efefff",
+            "primary-fixed-dim": "#abc7ff",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#afc7f8",
+            "on-secondary-fixed": "#001b3f",
+            "on-surface": "#001551",
+            "tertiary-fixed": "#ffdbcb",
+            "surface": "#faf8ff",
+            "tertiary": "#983f00",
+            "primary-fixed": "#d7e3ff",
+            "inverse-primary": "#abc7ff",
+            "surface-dim": "#d1d8ff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#2e4770",
+            "outline-variant": "#c1c6d6",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e4e7ff",
+            "on-primary-fixed": "#001b3f",
+            "secondary-fixed": "#d7e3ff",
+            "surface-container-low": "#f3f2ff",
+            "background": "#faf8ff",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-desktop": "2rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin": "1rem"
+          },
+          fontFamily: {
+            "title-section": ["Inter"],
+            "body-medium": ["Inter"],
+            "caption": ["Inter"],
+            "currency-md": ["Inter"],
+            "title-page-mobile": ["Inter"],
+            "chip-label": ["Inter"],
+            "title-page": ["Inter"],
+            "display-currency": ["Inter"],
+            "metadata-caps": ["Inter"],
+            "body-default": ["Inter"],
+            "body-secondary": ["Inter"]
+          },
+          fontSize: {
+            "title-section": ["18px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" }],
+            "body-medium": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "500" }],
+            "caption": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "400" }],
+            "currency-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "title-page-mobile": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "chip-label": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "title-page": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "display-currency": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "metadata-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "600" }],
+            "body-default": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "body-secondary": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #F5F7FA;
+      color: #001C64;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-tabular {
+      font-variant-numeric: tabular-nums;
+    }
+    .operational-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E6E8EB;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0, 28, 100, 0.06);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#d7e3ff] selection:text-[#001C64]">
+<!-- Top Navigation Bar -->
+<header class="w-full h-16 bg-[#FFFFFF] border-b border-[#E6E8EB] px-8 flex items-center justify-between sticky top-0 z-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2.5">
+<span class="font-title-section text-title-section font-semibold text-[#001C64] tracking-tight">PayFlow Guardian</span>
+<span class="text-[11px] font-mono font-medium tracking-wider text-[#687173] bg-[#F5F7FA] border border-[#E6E8EB] px-2 py-0.5 rounded-[4px]">SANDBOX</span>
+</div>
+<nav class="hidden md:flex items-center space-x-6 h-16">
+<a class="text-[#687173] font-body-default text-body-default hover:text-[#0070E0] transition-colors duration-150 py-5" href="#">Dashboard</a>
+<a class="text-[#0070E0] font-body-medium text-body-medium border-b-2 border-[#0070E0] h-full flex items-center pt-0.5" href="#">Payments</a>
+<a class="text-[#687173] font-body-default text-body-default hover:text-[#0070E0] transition-colors duration-150 py-5" href="#">Assistant</a>
+<a class="text-[#687173] font-body-default text-body-default hover:text-[#0070E0] transition-colors duration-150 py-5" href="#">Refunds</a>
+</nav>
+</div>
+<div class="flex items-center gap-4"><div class="flex flex-col text-right"><span class="text-[13px] font-medium text-[#001C64] leading-tight">Maya Chen</span><span class="text-[12px] text-[#687173] leading-tight">Owner · Harbor &amp; Co.</span></div><div aria-hidden="true" class="w-[1px] h-7 bg-[#E6E8EB]"></div><button class="text-[13px] font-medium text-[#687173] hover:text-[#001C64] transition-colors duration-150" type="button">Sign out</button></div>
+</header>
+<!-- Page Content Canvas -->
+<main class="w-full max-w-[1280px] mx-auto p-8 flex-1">
+<!-- Back to Payments Link -->
+<div class="mb-4">
+<a class="inline-flex items-center gap-1.5 text-sm font-medium text-[#0070E0] hover:text-[#003087] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+        Payments
+      </a>
+</div>
+<!-- Header Row -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-3">
+<!-- Left side: Customer and amount -->
+<div>
+<p class="text-base font-medium text-[#687173] mb-1">Jonah Hale</p>
+<div class="flex items-center gap-3">
+<h1 class="text-[32px] leading-[40px] font-semibold tracking-tight text-[#001C64] font-tabular">$86.00 USD</h1>
+<span class="inline-flex items-center text-xs font-medium text-[#8A5A00] bg-[#FFF6E0] px-2.5 py-0.5 rounded-[4px]">Pending</span>
+</div>
+</div>
+<!-- Right side: Actions -->
+<div class="flex flex-col items-start md:items-end">
+<div class="flex items-center gap-3">
+<button class="bg-white border border-[#E6E8EB] text-[#001C64] px-4 py-2 text-sm font-medium rounded-[6px] hover:bg-[#F5F7FA] transition-colors duration-150 shadow-none" type="button">
+            Ask the assistant
+          </button>
+<button class="opacity-40 bg-[#0070E0] text-white px-4 py-2 text-sm font-medium rounded-[6px] cursor-not-allowed" disabled="" type="button">
+            Prepare refund
+          </button>
+</div>
+<p class="text-xs text-[#687173] mt-1.5 text-right">Available after PayPal marks this completed.</p>
+</div>
+</div>
+<!-- Meta Line -->
+<div class="text-[13px] text-[#687173] pb-4 border-b border-[#E6E8EB] flex items-center flex-wrap gap-2">
+<span>Order HF-1044</span>
+<span>·</span>
+<span>PayPal reference <code class="font-mono text-xs text-[#001C64] bg-[#FFFFFF] px-1 py-0.5 rounded border border-[#E6E8EB]">8F21K4A</code></span>
+<span>·</span>
+<span>USD</span>
+<span>·</span>
+<span>Updated 12 min ago</span>
+</div>
+<!-- Main Operational Grid -->
+<div class="grid grid-cols-12 gap-6 mt-6">
+<!-- Left Column: What PayPal returned -->
+<section class="col-span-12 lg:col-span-7 operational-card p-6 flex flex-col justify-between">
+<div>
+<h2 class="text-base font-semibold text-[#001C64] pb-3 border-b border-[#E6E8EB]">What PayPal returned</h2>
+<dl class="flex flex-col divide-y divide-[#E6E8EB] text-sm mt-1">
+<div class="py-3 flex justify-between items-center">
+<dt class="text-[#687173] font-body-default">Status</dt>
+<dd>
+<span class="font-mono font-semibold text-xs px-2.5 py-0.5 bg-[#FFF6E0] text-[#8A5A00] rounded-[4px] inline-block">PENDING</span>
+</dd>
+</div>
+<div class="py-3 flex justify-between items-center">
+<dt class="text-[#687173] font-body-default">Intent</dt>
+<dd class="text-[#001C64] font-medium font-mono text-xs">CAPTURE</dd>
+</div>
+<div class="py-3 flex justify-between items-center">
+<dt class="text-[#687173] font-body-default">Payer</dt>
+<dd class="text-[#001C64] font-medium font-body-medium">jonah.hale@example.com</dd>
+</div>
+<div class="py-3 flex justify-between items-center">
+<dt class="text-[#687173] font-body-default">Created</dt>
+<dd class="text-[#001C64] font-medium font-body-medium">Today, 9:02 AM</dd>
+</div>
+<div class="py-3 flex justify-between items-center">
+<dt class="text-[#687173] font-body-default">Capture id</dt>
+<dd class="text-[#687173] font-medium italic">Not issued yet</dd>
+</div>
+</dl>
+</div>
+<!-- Strict Constraint: Note bar with NO icon -->
+<div class="mt-6 p-3 rounded-[6px] bg-[#FFF6E0] border border-[#FFE8A3] text-[13px] text-[#8A5A00] leading-relaxed">PayPal has not confirmed capture. Do not tell the customer this was paid.</div>
+</section>
+<!-- Right Column: Activity Timeline -->
+<section class="col-span-12 lg:col-span-5 operational-card p-6">
+<h2 class="text-base font-semibold text-[#001C64] pb-3 border-b border-[#E6E8EB] mb-5">Activity</h2>
+<div class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[1px] before:bg-[#E6E8EB]">
+<!-- Event 1 -->
+<div class="relative flex flex-col gap-0.5">
+<span aria-hidden="true" class="absolute -left-[23px] top-1.5 w-2 h-2 rounded-full bg-[#CCD2D8] ring-4 ring-white"></span>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono font-medium text-[#687173]">8:58 AM</span>
+</div>
+<p class="text-sm text-[#001C64] font-body-default">Order created in Harbor &amp; Co. cart</p>
+</div>
+<!-- Event 2 -->
+<div class="relative flex flex-col gap-0.5">
+<span aria-hidden="true" class="absolute -left-[23px] top-1.5 w-2 h-2 rounded-full bg-[#CCD2D8] ring-4 ring-white"></span>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono font-medium text-[#687173]">9:00 AM</span>
+</div>
+<p class="text-sm text-[#001C64] font-body-default">Customer redirected to PayPal checkout</p>
+</div>
+<!-- Event 3 -->
+<div class="relative flex flex-col gap-0.5">
+<span aria-hidden="true" class="absolute -left-[23px] top-1.5 w-2 h-2 rounded-full bg-[#CCD2D8] ring-4 ring-white"></span>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono font-medium text-[#687173]">9:02 AM</span>
+</div>
+<p class="text-sm text-[#001C64] font-body-default">PayPal webhook received: order intent <code class="font-mono text-xs bg-[#F5F7FA] px-1 py-0.5 border border-[#E6E8EB] rounded text-[#001C64]">CAPTURE</code></p>
+</div>
+<!-- Event 4 (Latest) -->
+<div class="relative flex flex-col gap-0.5">
+<span aria-hidden="true" class="absolute -left-[23px] top-1.5 w-2 h-2 rounded-full bg-[#0070E0] ring-4 ring-white"></span>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono font-semibold text-[#0070E0]">9:14 AM</span>
+<span class="text-[11px] text-[#687173]">(12 min ago)</span>
+</div>
+<p class="text-sm text-[#001C64] font-body-medium">Status checked against PayPal. Still pending.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Component matching Shared Components JSON -->
+<footer class="w-full py-4 px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center border-t border-[#E6E8EB] bg-[#FFFFFF] mt-12">
+<div class="text-xs text-[#687173] font-caption text-caption mb-3 md:mb-0">
+      © 2025 PayFlow Guardian Inc. Financial Operations Infrastructure. All rights reserved.
+    </div>
+<div class="flex items-center flex-wrap gap-6 text-xs text-[#687173] font-caption text-caption">
+<a class="hover:text-[#0058b2] transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="hover:text-[#0058b2] transition-colors duration-150" href="#">Terms of Service</a>
+<a class="hover:text-[#0058b2] transition-colors duration-150" href="#">Compliance &amp; Audits</a>
+<a class="hover:text-[#0058b2] transition-colors duration-150" href="#">Status</a>
+<a class="hover:text-[#0058b2] transition-colors duration-150" href="#">Cookie Preferences</a>
+</div>
+</footer>
+
+
+</body></html>

@@ -1,0 +1,1 @@
+"""Verified PayPal webhook intake."""

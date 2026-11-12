@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --canvas: #f5f7fa;
+  --surface: #ffffff;
+  --hairline: #e6e8eb;
+  --ink: #001c64;
+  --muted: #687173;
+  --action: #0070e0;
+  --action-hover: #003087;
+  --focus: rgba(0, 112, 224, 0.4);
+  --disabled: #ccd2d8;
+  --disabled-text: #8c96a0;
+  --completed: #0e7a3d;
+  --completed-surface: #e8f6ee;
+  --pending: #8a5a00;
+  --pending-surface: #fff6e0;
+  --failed: #b42318;
+  --failed-surface: #fdecec;
+  --failed-hover: #fcd7d7;
+  --refunded: #3d4c66;
+  --refunded-surface: #eef2f6;
+  --backdrop: rgba(0, 28, 100, 0.32);
+  --font-inter: "Inter", sans-serif;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-inter), Inter, sans-serif;
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+}
+
+@layer components {
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+}

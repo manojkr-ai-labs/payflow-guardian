@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PayFlow Guardian - Review Refund</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#2e4770",
+            "on-primary": "#ffffff",
+            "secondary-container": "#b4ccfe",
+            "on-primary-fixed-variant": "#00458f",
+            "on-primary-fixed": "#001b3f",
+            "on-error": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#e4e7ff",
+            "surface-container-low": "#f3f2ff",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#afc7f8",
+            "surface-container": "#ebedff",
+            "outline-variant": "#c1c6d6",
+            "on-surface-variant": "#414753",
+            "tertiary-container": "#bf5100",
+            "tertiary-fixed-dim": "#ffb692",
+            "primary-fixed-dim": "#abc7ff",
+            "surface-tint": "#005cba",
+            "secondary-fixed": "#d7e3ff",
+            "surface-variant": "#dce1ff",
+            "on-tertiary-container": "#fff8f5",
+            "background": "#faf8ff",
+            "secondary": "#475f8a",
+            "surface-dim": "#d1d8ff",
+            "tertiary-fixed": "#ffdbcb",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#d7e3ff",
+            "on-primary-container": "#f9f9ff",
+            "inverse-surface": "#132a71",
+            "surface-container-highest": "#dce1ff",
+            "on-tertiary-fixed-variant": "#793000",
+            "on-surface": "#001551",
+            "primary-container": "#0070e0",
+            "tertiary": "#983f00",
+            "on-secondary-container": "#3e5681",
+            "on-error-container": "#93000a",
+            "surface-bright": "#faf8ff",
+            "on-background": "#001551",
+            "surface": "#faf8ff",
+            "on-secondary-fixed": "#001b3f",
+            "primary": "#0058b2",
+            "inverse-primary": "#abc7ff",
+            "on-tertiary-fixed": "#341100",
+            "error": "#ba1a1a",
+            "outline": "#717785",
+            "inverse-on-surface": "#efefff",
+            /* Direct style tokens */
+            "neutral-bg": "#F5F7FA",
+            "navy-primary": "#001C64",
+            "muted-slate": "#687173",
+            "border-hairline": "#E6E8EB",
+            "brand-blue": "#0070E0",
+            "brand-blue-hover": "#003087"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "2rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "sans": ["Inter", "sans-serif"],
+            "mono": ["'JetBrains Mono'", "monospace"],
+            "currency-md": ["Inter"],
+            "body-medium": ["Inter"],
+            "metadata-caps": ["Inter"],
+            "title-page": ["Inter"],
+            "display-currency": ["Inter"],
+            "body-default": ["Inter"],
+            "body-secondary": ["Inter"],
+            "chip-label": ["Inter"],
+            "caption": ["Inter"],
+            "title-page-mobile": ["Inter"],
+            "title-section": ["Inter"]
+          },
+          "fontSize": {
+            "currency-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "metadata-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "title-page": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-currency": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-default": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-secondary": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "chip-label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "caption": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-page-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-section": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+    .font-tabular {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body class="bg-[#F5F7FA] text-[#001C64] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#0070E0] selection:text-white">
+<!-- Top Bar Chrome -->
+<header class="w-full h-16 bg-white border-b border-[#E6E8EB] px-8 flex items-center justify-between sticky top-0 z-40">
+<!-- Left: Brand & Navigation -->
+<div class="flex items-center gap-8 h-full">
+<div class="flex items-center gap-2.5">
+<span class="text-[18px] font-semibold text-[#001C64] tracking-tight">PayFlow Guardian</span>
+<span class="text-[11px] font-mono uppercase bg-[#F5F7FA] text-[#687173] font-medium px-2 py-0.5 rounded-[4px] border border-[#E6E8EB] tracking-wide">SANDBOX</span>
+</div>
+<!-- Navigation links -->
+<nav class="hidden md:flex items-center gap-8 h-full pt-1"><a class="text-[14px] font-medium text-[#687173] hover:text-[#001C64] transition-colors duration-150 py-5" href="#">Dashboard</a><a class="text-[14px] font-medium text-[#687173] hover:text-[#001C64] transition-colors duration-150 py-5" href="#">Payments</a><a class="text-[14px] font-medium text-[#687173] hover:text-[#001C64] transition-colors duration-150 py-5" href="#">Assistant</a><a class="text-[14px] font-medium text-[#0070E0] py-5 border-b-2 border-[#0070E0] transition-colors" href="#">Refunds</a></nav>
+</div>
+<!-- Right: Merchant Profile & Actions -->
+<div class="flex items-center"><div class="flex flex-col text-right"><span class="text-[13px] font-medium text-[#001C64] leading-tight">Maya Chen</span><span class="text-[12px] text-[#687173] leading-tight mt-0.5">Owner · Harbor &amp; Co.</span></div><div aria-hidden="true" class="h-5 w-px bg-[#E6E8EB] mx-4"></div><button class="text-[13px] font-medium text-[#687173] hover:text-[#001C64] transition-colors duration-150 focus:outline-none" type="button">Sign out</button></div>
+</header>
+<!-- Page Content Container -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto py-10 px-8 flex flex-col justify-start">
+<!-- Header Section -->
+<div class="max-w-[760px] w-full mx-auto mb-6">
+<h1 class="text-[32px] font-semibold text-[#001C64] tracking-tight leading-9">Review refund</h1>
+<p class="text-[15px] text-[#687173] mt-1.5 leading-normal">
+        Sending happens only after you approve. The assistant prepared this. It did not send it.
+      </p>
+</div>
+<!-- Centered Review Sheet Card -->
+<div class="bg-white max-w-[760px] w-full mx-auto rounded-[8px] border border-[#E6E8EB] shadow-[0_1px_2px_rgba(0,28,100,0.06)] overflow-hidden">
+<!-- Sheet Header -->
+<div class="p-6 border-b border-[#E6E8EB] flex items-center justify-between bg-white">
+<h2 class="text-[20px] font-semibold text-[#001C64] tracking-tight">Refund draft</h2>
+<span class="inline-flex items-center text-[12px] font-medium px-2.5 py-0.5 rounded-[4px] bg-[#FFF6E0] text-[#8A5A00] border border-[#F3E2B8]">Not sent</span>
+</div>
+<!-- Sheet Body -->
+<div class="p-6">
+<!-- Definition Grid -->
+<dl class="grid grid-cols-2 gap-x-8 gap-y-5">
+<!-- Row 1 -->
+<div>
+<dt class="text-[13px] font-medium text-[#687173]">Payment</dt>
+<dd class="text-[15px] font-mono font-medium text-[#001C64] mt-1 tracking-tight">2NQ91C0</dd>
+</div>
+<div>
+<dt class="text-[13px] font-medium text-[#687173]">Customer</dt>
+<dd class="text-[15px] font-medium text-[#001C64] mt-1">Lina Ortiz</dd>
+</div>
+<!-- Row 2 -->
+<div>
+<dt class="text-[13px] font-medium text-[#687173]">Original amount</dt>
+<dd class="text-[15px] font-medium text-[#001C64] font-tabular mt-1">$48.00 USD</dd>
+</div>
+<div>
+<dt class="text-[13px] font-medium text-[#687173]">Refund amount</dt>
+<dd class="text-[18px] font-semibold text-[#001C64] font-tabular mt-1">$48.00 USD</dd>
+</div>
+<!-- Row 3 -->
+<div>
+<dt class="text-[13px] font-medium text-[#687173]">Reason</dt>
+<dd class="text-[15px] font-medium text-[#001C64] mt-1">Duplicate charge</dd>
+</div>
+<div>
+<dt class="text-[13px] font-medium text-[#687173]">Prepared by</dt>
+<dd class="text-[15px] font-medium text-[#001C64] mt-1">Assistant, from the payment record</dd>
+</div>
+<!-- Row 4 -->
+<div class="col-span-2 sm:col-span-1">
+<dt class="text-[13px] font-medium text-[#687173]">PayPal status</dt>
+<dd class="mt-1">
+<span class="inline-flex items-center text-[12px] font-medium px-2.5 py-0.5 rounded-[4px] bg-[#E8F6EE] text-[#0E7A3D]">Completed</span>
+</dd>
+</div>
+</dl>
+<!-- Hairline Divider -->
+<hr class="my-6 border-t border-[#E6E8EB]">
+<!-- Confirmation Context Notice -->
+<div class="bg-[#F8FAFC] border border-[#E6E8EB] rounded-[6px] p-3.5 flex items-start gap-2.5">
+<span aria-hidden="true" class="material-symbols-outlined text-[#687173] text-[18px] mt-0.5 shrink-0">info</span>
+<p class="text-[14px] text-[#001C64] font-medium leading-relaxed">
+            I have checked this amount and reason. Approving will send the refund to PayPal Sandbox.
+          </p>
+</div>
+</div>
+<!-- Sheet Footer -->
+<div class="p-6 bg-[#FAFBFC] border-t border-[#E6E8EB] flex items-center justify-end gap-3">
+<button class="text-[14px] font-medium text-[#687173] hover:text-[#001C64] px-4 py-2 rounded-[6px] transition-colors focus:outline-none focus:ring-1 focus:ring-[#CCD2D8]" type="button">
+          Reject
+        </button>
+<button class="text-[14px] font-semibold text-white bg-[#0070E0] hover:bg-[#003087] px-5 py-2.5 rounded-[6px] shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-[#0070E0]/40" type="button">
+          Approve and send
+        </button>
+</div>
+</div>
+<!-- Note under the sheet -->
+<div class="max-w-[760px] w-full mx-auto mt-4 px-1">
+<p class="text-[13px] text-[#687173]">
+        Owner approval is required. Support can prepare a draft and cannot send it.
+      </p>
+</div>
+</main>
+<!-- Standard Institutional Footer -->
+<footer class="w-full py-4 px-8 border-t border-[#E6E8EB] bg-white flex flex-col md:flex-row justify-between items-center text-[12px] text-[#687173] mt-auto">
+<div class="font-normal">
+      © 2025 PayFlow Guardian Inc. Financial Operations Infrastructure. All rights reserved.
+    </div>
+<div class="flex items-center gap-6 mt-3 md:mt-0 font-normal">
+<a class="hover:text-[#001C64] transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="hover:text-[#001C64] transition-colors duration-150" href="#">Terms of Service</a>
+<a class="hover:text-[#001C64] transition-colors duration-150" href="#">Compliance &amp; Audits</a>
+<a class="hover:text-[#001C64] transition-colors duration-150" href="#">Status</a>
+<a class="hover:text-[#001C64] transition-colors duration-150" href="#">Cookie Preferences</a>
+</div>
+</footer>
+
+
+</body></html>
